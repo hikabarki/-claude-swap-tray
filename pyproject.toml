@@ -1,0 +1,41 @@
+[project]
+name = "claude-swap-tray"
+version = "0.1.0"
+description = "Windows system-tray front-end for claude-swap"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "mkd-hika", email = "hika.dalju@mkd.kr" }]
+keywords = ["claude", "claude-code", "claude-swap", "tray", "system-tray", "windows"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "claude-swap>=0.23",
+    "pystray>=0.19",
+    "pillow>=10",
+]
+
+[project.urls]
+Homepage = "https://github.com/mkd-hika/-claude-swap-tray"
+Repository = "https://github.com/mkd-hika/-claude-swap-tray"
+Issues = "https://github.com/mkd-hika/-claude-swap-tray/issues"
+
+# A windowed entry point: uv/pip build a no-console launcher on Windows, so the
+# tray app starts without a terminal flashing up.
+[project.gui-scripts]
+cswap-tray = "cswap_tray.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cswap_tray"]

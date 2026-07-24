@@ -1,0 +1,9 @@
+# Normalize line endings: LF in the repo, native on checkout.
+* text=auto
+
+# Windows scripts are checked out with CRLF.
+*.bat text eol=crlf
+*.vbs text eol=crlf
+
+# Python stays LF.
+*.py text eol=lf
